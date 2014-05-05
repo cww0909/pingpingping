@@ -1,0 +1,16 @@
+{
+  "name": "pingpingping",
+  "version": "0.1",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.4.6",
+    "jquery": "~2.1.1"
+  }
+}
