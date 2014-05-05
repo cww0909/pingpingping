@@ -1,0 +1,21 @@
+{
+	"manifest_version": 2,
+	"name": "pingpingping",
+	"description": "Test your ping to a server over time with this extension",
+	"version": "0.1.1",
+	"app": {
+		"background": {
+			"scripts": ["main.js"]
+		}
+	},
+	"sandbox": {
+		"pages": ["index.html"]
+	},
+	"icons": {
+		"16": "ppp16.png",
+		"32": "ppp32.png",
+		"128": "ppp128.png"
+	},
+	"permissions": ["http://*/"],
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
+}
