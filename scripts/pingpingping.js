@@ -80,7 +80,6 @@ function ping(host){
 	this.start = Date.now();
 	$.ajax({
 		url: host,
-		dataType: "jsonp",
 		timeout: interval
 	}).always(pingCallback);	
 
