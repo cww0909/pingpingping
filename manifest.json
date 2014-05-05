@@ -13,6 +13,6 @@
 		"32": "ppp32.png",
 		"128": "ppp128.png"
 	},
-	"permissions": ["http://*/"],
+	"permissions": ["<all_urls>"],
 	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }

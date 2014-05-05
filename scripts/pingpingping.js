@@ -2,7 +2,7 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
     dataRange = 1000,
-    interval = 1000;
+    interval = 2000;
 
 //TODO: look into d3.time.forat.multi x axis tick labels
 
