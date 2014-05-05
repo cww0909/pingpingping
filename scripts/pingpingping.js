@@ -1,8 +1,6 @@
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom,
-    dataRange = 1000,
-    interval = 1000;
+    height = 500 - margin.top - margin.bottom;
 
 //TODO: look into d3.time.forat.multi x axis tick labels
 
@@ -45,7 +43,12 @@ var chartY = svg.append("g")
  chartYLabel = chartY.append("text");
 
 var that = this;
-var data=[], intervalID;
+var data=[],
+    dataRange = 100,
+    interval = 1000,
+    timeout = 2000,
+    inUse = false,
+    intervalID;
 
 $("#host_form").on("submit", function(event){
 	var host = $("select").val();
@@ -77,14 +80,17 @@ function draw(){
 }
 
 function ping(host){
-	this.start = Date.now();
-	$.ajax({
-		url: host,
-		timeout: interval
-	})
-	.done(successCallback)
-	.fail(failCallback)
-	.always(alwaysCallback);	
+	if(!inUse){
+		inUse = true;
+		this.start = Date.now();
+		$.ajax({
+			url: host,
+			timeout: timeout
+		})
+		.done(successCallback)	
+		.fail(failCallback)
+		.always(alwaysCallback);			
+	}
 
 }
 
@@ -96,14 +102,15 @@ function successCallback(){
 	});
 }
 
-function failCallback(){
+function failCallback(jqXHR, textStatus, e){
 	var end = Date.now();
 	data.push({
 		time: end,
-		rtt: dataRange
+		rtt: timeout
 	});
 }
 
 function alwaysCallback(){
 	if(data.length >= dataRange) data.shift();	
+	inUse = false;
 }
