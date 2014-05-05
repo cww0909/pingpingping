@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "pingpingping",
 	"description": "Test your ping to a server over time with this extension",
-	"version": "0.1.1",
+	"version": "0.2",
 	"app": {
 		"background": {
 			"scripts": ["main.js"]

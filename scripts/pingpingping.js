@@ -81,15 +81,29 @@ function ping(host){
 	$.ajax({
 		url: host,
 		timeout: interval
-	}).always(pingCallback);	
+	})
+	.done(successCallback)
+	.fail(failCallback)
+	.always(alwaysCallback);	
 
 }
 
-function pingCallback(){
+function successCallback(){
 	var end = Date.now();
 	data.push({
 		time: end,
 		rtt: end - that.start
 	});
-	if(data.length >= dataRange) data.shift();
+}
+
+function failCallback(){
+	var end = Date.now();
+	data.push({
+		time: end,
+		rtt: dataRange
+	});
+}
+
+function alwaysCallback(){
+	if(data.length >= dataRange) data.shift();	
 }
