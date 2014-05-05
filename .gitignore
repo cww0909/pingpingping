@@ -1,3 +1,4 @@
 activate.bat
 deactivate.bat
 lib/bower_components
+*.zip
