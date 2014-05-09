@@ -2,6 +2,8 @@ var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
+//var tracker = analytics.getService("pingpingping").getTracker("UA-50661920-1");
+
 //TODO: look into d3.time.forat.multi x axis tick labels
 
 var x = d3.time.scale()
@@ -49,6 +51,8 @@ var data=[],
     timeout = 2000,
     inUse = false,
     intervalID;
+
+//tracker.sendAppView('MainView');
 
 $("#host_form").on("submit", function(event){
 	var host = $("select").val();

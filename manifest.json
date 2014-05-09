@@ -4,8 +4,8 @@
 	"description": "Test your ping to a server over time with this extension",
 	"version": "0.3",
 	"app": {
-		"launch": {
-			"local_path": "index.html"
+		"background": {
+			"scripts": ["main.js"]
 		}
 	},
 	"icons": {
@@ -13,6 +13,7 @@
 		"32": "ppp32.png",
 		"128": "ppp128.png"
 	},
-	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
-	"permissions": ["http://*/*"]
+	"permissions": [
+		"<all_urls>"
+	]
 }
